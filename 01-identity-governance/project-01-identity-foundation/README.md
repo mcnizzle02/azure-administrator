@@ -316,7 +316,6 @@ All tests run in InPrivate windows, signed in as each user.
 
 ## 8. Why I Made These Choices
 
-> ✏️ *Draft. Rewrite in my own words before publishing.*
 
 - **Groups, not individuals.** Every permission is assigned to a group, so onboarding, role changes, and offboarding are one membership change, and the access matrix stays accurate. The one exception, my own admin account, is documented in the matrix instead of hidden.
 - **Dynamic groups.** Paralegals and the litigation team are populated from HR attributes, so access follows the person when their department or title changes. Kevin's offboarding proved it: one attribute change removed his access.
@@ -333,7 +332,6 @@ All tests run in InPrivate windows, signed in as each user.
 
 ## 9. Lessons Learned
 
-> ✏️ *Draft. Rewrite in my own words before publishing.*
 
 - **Test the action, not the interface.** The portal let Owen fill out a full budget form and let the guest click Delete. Enforcement happens server-side, so the denial message is the real evidence, not a greyed-out button.
 - **Read past the first error.** "The role is not found" was really a PIM problem. A wall of Python traceback was really one `SkuNotAvailable` line. Finding which service threw the error, and its actual code, solved both.
@@ -344,27 +342,4 @@ All tests run in InPrivate windows, signed in as each user.
 
 ---
 
-## 10. Cleanup & Cost
 
-- [x] Test VM deleted with its disk and NIC; leftover VNet removed; `rg-servers-prod-01` verified empty
-- [x] Users and groups **kept** for later projects
-- [ ] Remove the guest and `SG-External-CoCounsel` access when the "case closes"
-- [ ] Record the actual cost from Cost Management: $____
-
----
-
-## Stretch Goals (Entra ID P2)
-
-- [ ] **PIM:** make Jordan's Helpdesk Administrator role *eligible* instead of permanent
-- [ ] **Access reviews:** quarterly review of `SG-External-CoCounsel`
-- [ ] **Conditional Access:** require MFA for admin roles and block sign-ins from outside the US *(requires turning off security defaults)*
-- [ ] Rebuild Tasks 1–3 as a single PowerShell/CLI script
-
-## Interview Talking Points
-
-- Why I assign permissions to groups, not users
-- The difference between Azure RBAC and Entra ID roles, and when I used each
-- Why Contributor instead of Owner for the admin group
-- Why I built a custom role, and the trade-off I accepted
-- Why blocking sign-in alone isn't enough to lock out a departing employee
-- How I diagnosed a misleading PIM error and a device code block
