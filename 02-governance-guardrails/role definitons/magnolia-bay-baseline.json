@@ -1,0 +1,131 @@
+{
+  "description": "Core governance guardrails: U.S. regions only, approved VM sizes, Department tag required on resource groups and inherited by resources.",
+  "displayName": "Magnolia Bay Baseline",
+  "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/f7f59aedf8da5b988870167b",
+  "metadata": {
+    "category": "Magnolia Bay",
+    "createdBy": "9e203f3c-e34a-44d1-870d-481278a94251",
+    "createdOn": "2026-11-06T03:20:22.6678084Z",
+    "updatedBy": null,
+    "updatedOn": null
+  },
+  "name": "f7f59aedf8da5b988870167b",
+  "parameters": {
+    "allowedLocations": {
+      "allowedValues": [],
+      "defaultValue": [
+        "eastus",
+        "centralus"
+      ],
+      "metadata": {
+        "assignPermissions": false,
+        "description": "",
+        "displayName": "Allowed locations",
+        "portalReview": false,
+        "strongType": ""
+      },
+      "type": "array"
+    },
+    "allowedVmSizes": {
+      "allowedValues": [],
+      "defaultValue": [
+        "Standard_B2ats_v2",
+        "Standard_B2als_v2",
+        "Standard_B2s_v2",
+        "Standard_D2alds_v7"
+      ],
+      "metadata": {
+        "assignPermissions": false,
+        "description": "",
+        "displayName": "Allowed VM sizes",
+        "portalReview": false,
+        "strongType": ""
+      },
+      "type": "array"
+    },
+    "tagName": {
+      "allowedValues": [],
+      "defaultValue": "Department",
+      "metadata": {
+        "assignPermissions": false,
+        "description": "",
+        "displayName": "Tag name",
+        "portalReview": false,
+        "strongType": ""
+      },
+      "type": "string"
+    }
+  },
+  "policyDefinitionGroups": [],
+  "policyDefinitions": [
+    {
+      "definitionVersion": "1.1.*",
+      "groupNames": [],
+      "parameters": {
+        "listOfAllowedLocations": {
+          "value": "[parameters('allowedLocations')]"
+        }
+      },
+      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+      "policyDefinitionReferenceId": "Allowed locations_1"
+    },
+    {
+      "definitionVersion": "1.1.*",
+      "groupNames": [],
+      "parameters": {
+        "listOfAllowedLocations": {
+          "value": "[parameters('allowedLocations')]"
+        }
+      },
+      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+      "policyDefinitionReferenceId": "Allowed locations for resource groups_1"
+    },
+    {
+      "definitionVersion": "1.0.*",
+      "groupNames": [],
+      "parameters": {
+        "listOfAllowedSKUs": {
+          "value": "[parameters('allowedVmSizes')]"
+        }
+      },
+      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cccc23c7-8427-4f53-ad12-b6a63eb452b3",
+      "policyDefinitionReferenceId": "Allowed virtual machine size SKUs_1"
+    },
+    {
+      "definitionVersion": "1.0.*",
+      "groupNames": [],
+      "parameters": {
+        "tagName": {
+          "value": "[parameters('tagName')]"
+        }
+      },
+      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025",
+      "policyDefinitionReferenceId": "Require a tag on resource groups_1"
+    },
+    {
+      "definitionVersion": "1.0.*",
+      "groupNames": [],
+      "parameters": {
+        "tagName": {
+          "value": "[parameters('tagName')]"
+        }
+      },
+      "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+      "policyDefinitionReferenceId": "Inherit a tag from the resource group if missing_1"
+    }
+  ],
+  "policyType": "Custom",
+  "systemData": {
+    "createdAt": "2026-11-06T03:20:22.6198353Z",
+    "createdBy": "leamon.mcnutt@MagnoliaBayLegal.onmicrosoft.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2026-11-06T03:20:22.6198353Z",
+    "lastModifiedBy": "leamon.mcnutt@MagnoliaBayLegal.onmicrosoft.com",
+    "lastModifiedByType": "User"
+  },
+  "type": "Microsoft.Authorization/policySetDefinitions",
+  "version": "1.0.0",
+  "versions": [
+    "1.0.0"
+  ]
+}
