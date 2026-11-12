@@ -1,0 +1,64 @@
+{
+  "id": "/subscriptions/<subscription-id>/resourceGroups/rg-casefiles-prod-01/providers/Microsoft.Storage/storageAccounts/stmbcasefiles0751/managementPolicies/default",
+  "lastModifiedTime": "2026-11-12T03:09:33.983104+00:00",
+  "name": "DefaultManagementPolicy",
+  "policy": {
+    "rules": [
+      {
+        "definition": {
+          "actions": {
+            "baseBlob": {
+              "delete": {
+                "daysAfterCreationGreaterThan": null,
+                "daysAfterLastAccessTimeGreaterThan": null,
+                "daysAfterLastTierChangeGreaterThan": null,
+                "daysAfterModificationGreaterThan": 2555.0
+              },
+              "enableAutoTierToHotFromCool": null,
+              "tierToArchive": {
+                "daysAfterCreationGreaterThan": null,
+                "daysAfterLastAccessTimeGreaterThan": 180.0,
+                "daysAfterLastTierChangeGreaterThan": 30.0,
+                "daysAfterModificationGreaterThan": null
+              },
+              "tierToCold": null,
+              "tierToCool": {
+                "daysAfterCreationGreaterThan": null,
+                "daysAfterLastAccessTimeGreaterThan": 30.0,
+                "daysAfterLastTierChangeGreaterThan": null,
+                "daysAfterModificationGreaterThan": null
+              },
+              "tierToHot": null
+            },
+            "snapshot": null,
+            "version": {
+              "delete": {
+                "daysAfterCreationGreaterThan": 90.0,
+                "daysAfterLastTierChangeGreaterThan": null
+              },
+              "tierToArchive": null,
+              "tierToCold": null,
+              "tierToCool": null,
+              "tierToHot": null
+            }
+          },
+          "filters": {
+            "blobIndexMatch": null,
+            "blobTypes": [
+              "blockBlob"
+            ],
+            "prefixMatch": [
+              "case-files/"
+            ]
+          }
+        },
+        "enabled": true,
+        "name": "casefiles-retention",
+        "type": "Lifecycle"
+      }
+    ]
+  },
+  "resourceGroup": "rg-casefiles-prod-01",
+  "systemData": null,
+  "type": "Microsoft.Storage/storageAccounts/managementPolicies"
+}
